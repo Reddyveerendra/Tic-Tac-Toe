@@ -4,7 +4,7 @@
 }
 h1 {
   text-align: center;
-  margin: 5%;
+  margin: 3%;
 }
 #container {
   display: grid;
@@ -22,4 +22,30 @@ h1 {
   font-size: 50px;
   text-align: center;
   padding-top: 15%;
+}
+.button {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: auto;
+  margin-top: 1%;
+  width: max-content;
+  border-radius: 12px;
+  border: 0;
+  background-color: rgb(56, 150, 245);
+  text-align: center;
+  padding: 1%;
+}
+.button2 {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  padding: auto;
+  margin-bottom: 1%;
+  width: max-content;
+  border-radius: 12px;
+  border: 0;
+  background-color: rgb(56, 150, 245);
+  text-align: center;
+  padding: 1%;
 }
