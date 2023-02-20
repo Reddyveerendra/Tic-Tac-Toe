@@ -3,8 +3,8 @@ let arr = ["", "", "", "", "", "", "", "", ""];
 var Player1 = "Player1";
 var Player2 = "Player2";
 function playerData() {
-    Player1 = window.prompt("Your question");
-    Player2 = window.prompt("Your question");
+    Player1 = window.prompt("Please enter player1 name");
+    Player2 = window.prompt("Please enter player2 name");
 }
 function createLayout() {
     for (let i = 0; i < 9; i++) {
@@ -38,22 +38,28 @@ function handleClick(e) {
     }
     console.log(arr);
     n += 1;
-    if (((((arr[0] == "O" && (arr[3] == "O" && arr[6] == "O")) || (arr[1] == "O" && (arr[4] == "O" && arr[7] == "O"))) || (arr[2] == "O" && (arr[5] == "O" && arr[8] == "O"))) || (((arr[0] == "O" && (arr[1] == "O" && arr[2] == "O")) || (arr[3] == "O" && (arr[4] == "O" && arr[5] == "O"))) || (arr[8] == "O" && (arr[7] == "O" && arr[6] == "O")))) || ((arr[0] == "O" && (arr[4] == "O" && arr[8] == "O")) || (arr[2] == "O" && (arr[4] == "O" && arr[6] == "O")))) {
-        alert(`${Player2} won the match`)
+    for (let j = 0; j < 3; j++) {
+        if ((arr[j] == "O" && (arr[j + 3] == "O" && arr[j + 6] == "O")) || (arr[j] == "O" && (arr[j + 1] == "O" && arr[j + 2] == "O"))) {
+            alert(`${Player2} won the match`)
+            restart();
+        }
+        if ((arr[j] == "X" && (arr[j + 3] == "X" && arr[j + 6] == "X")) || (arr[j] == "X" && (arr[j + 1] == "X" && arr[j + 2] == "X"))) {
+            alert(`${Player1} won the match`);
+            restart();
+        }
+    }
+    if ((arr[0] == "O" && (arr[4] == "O" && arr[8] == "O")) || (arr[2] == "O" && (arr[4] == "O" && arr[6] == "O"))) {
+        alert(`${Player2} won the match`);
         restart();
     }
-    else if ((((arr[0] == "X" && (arr[3] == "X" && arr[6] == "X")) || (arr[1] == "X" && (arr[4] == "X" && arr[7] == "X")) || (arr[2] == "X" && (arr[5] == "X" && arr[8] == "X"))) || (((arr[0] == "X" && (arr[1] == "X" && arr[2] == "X")) || (arr[3] == "X" && (arr[4] == "X" && arr[5] == "X"))) || (arr[8] == "X" && (arr[7] == "X" && arr[6] == "X")))) || ((arr[0] == "X" && (arr[4] == "X" && arr[8] == "X")) || (arr[2] == "X" && (arr[4] == "X" && arr[6] == "X")))) {
+    if ((arr[0] == "X" && (arr[4] == "X" && arr[8] == "X")) || (arr[2] == "X" && (arr[4] == "X" && arr[6] == "X"))) {
         alert(`${Player1} won the match`);
         restart();
-    }
-    else {
-        console.log("no");
     }
     if (n == 9) {
         alert("Draw match")
         restart();
     }
-    console.log(n)
 }
 function restart() {
     while (layout.firstElementChild) {
